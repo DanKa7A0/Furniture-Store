@@ -1,0 +1,16 @@
+{
+  "name": "furniture_store",
+  "private": true,
+  "workspaces": [
+    "api",
+    "client",
+    "shared"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=api\" \"npm run dev --workspace=client\"",
+    "build": "npm run build --workspace=api && npm run build --workspace=client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
