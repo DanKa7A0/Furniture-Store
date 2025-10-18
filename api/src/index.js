@@ -22,4 +22,5 @@ app.use(authMiddleware);
 app.use(router);
 app.use(errorHandler);
 
+// start server
 app.listen(PORT, () => console.log("Server is listening on http://localhost:3030"));
