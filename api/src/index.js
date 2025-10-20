@@ -1,5 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors";
 import "dotenv/config";
 
 const app = express();
@@ -11,6 +12,7 @@ mongoose.connect(DB, { dbName: "Friendly_World" })
     .then(() => console.log("Successfully connected to db"))
     .catch((err) => console.error("Can not connect to db", err));
 
+app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
 
 
