@@ -11,8 +11,7 @@ mongoose.connect(DB, { dbName: "Friendly_World" })
     .then(() => console.log("Successfully connected to db"))
     .catch((err) => console.error("Can not connect to db", err));
 
-app.get("/", (req, res) => {
-    res.send("test");
-});
+app.use(express.json());
+
 
 app.listen(PORT, () => console.log("Server is listening on http://localhost:3030"));
