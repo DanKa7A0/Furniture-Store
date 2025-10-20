@@ -14,6 +14,26 @@ const userSchema = new Schema({
         , required: [true, "Password is required"]
         , minLenght: [4, "Password need to be at least 4 characters long"]
     }
+
+    , CD: {
+        type: Date
+        , default: Date.now()
+    }
+
+    , CU: {
+        type: String
+        , default: "system"
+    }
+
+    , LD: {
+        type: Date
+        , default: Date.now()
+    }
+
+    , LU: {
+        type: String
+        , default: "system"
+    }
 });
 
 userSchema.pre("save", async function (){
