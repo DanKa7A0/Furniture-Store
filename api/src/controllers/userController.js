@@ -1,9 +1,11 @@
 import { Router } from "express";
+import { userService } from "../services/index.js";
 
 const userController = Router();
 
-userController.post("/register", (req, res) => {    
-    res.status(201).json({ email: "test", accessToken: "123", _id: 1 });
+userController.post("/register", async (req, res) => { 
+    const response = await userService.register(req.body);
+    res.status(201).json(response);
 });
 
 export default userController;
