@@ -5,6 +5,7 @@ import "dotenv/config";
 
 import router from "./router.js";
 import { errorHandler } from "./middlewares/errorMiddleware.js";
+import { authMiddleware } from "./middlewares/authMiddleware.js";
 
 const app = express();
 const PORT = process.env.PORT ?? 5000;
@@ -17,6 +18,7 @@ mongoose.connect(DB, { dbName: "Furniture_Store" })
 
 app.use(cors({ origin: "http://localhost:5173" }));
 app.use(express.json());
+app.use(authMiddleware);
 app.use(router);
 app.use(errorHandler);
 
