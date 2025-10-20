@@ -8,6 +8,11 @@ userController.post("/register", async (req, res) => {
     res.status(201).json(response);
 });
 
+userController.post("/login", async (req, res) => { 
+    const response = await userService.login(req.body);
+    res.status(200).json(response);
+});
+
 userController.get("/logout", async (req, res) => { 
     res.status(204).json({ok: true});
 });
