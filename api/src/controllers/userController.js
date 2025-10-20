@@ -8,4 +8,8 @@ userController.post("/register", async (req, res) => {
     res.status(201).json(response);
 });
 
+userController.get("/logout", async (req, res) => { 
+    res.status(204).json({ok: true});
+});
+
 export default userController;
