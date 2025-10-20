@@ -17,7 +17,8 @@ const userSchema = new Schema({
 
     , CD: {
         type: Date
-        , default: Date.now()
+        , default: Date.now
+        , get: (v) => v ? new Date(v).toLocaleString('bg-BG', { timeZone: 'Europe/Sofia' }) : v
     }
 
     , CU: {
@@ -27,14 +28,20 @@ const userSchema = new Schema({
 
     , LD: {
         type: Date
-        , default: Date.now()
+        , default: Date.now
+        , get: (v) => v ? new Date(v).toLocaleString('bg-BG', { timeZone: 'Europe/Sofia' }) : v
     }
 
     , LU: {
         type: String
         , default: "system"
     }
-});
+} 
+, {
+    toJSON: { getters: true },
+    toObject: { getters: true },
+    timestamps: { createdAt: 'CD', updatedAt: 'LD' } // auto update
+ });
 
 userSchema.pre("save", async function (){
     this.password = await bcrypt.hash(this.password, 10);
