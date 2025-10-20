@@ -1,8 +1,15 @@
 import express from "express";
+import mongoose from "mongoose";
 import "dotenv/config";
 
 const app = express();
-const PORT = 3030;
+const PORT = process.env.PORT ?? 5000;
+const DB = process.env.DB ?? "mongodb://localhost:27017/";
+
+// connect to db
+mongoose.connect(DB, { dbName: "Friendly_World" })
+    .then(() => console.log("Successfully connected to db"))
+    .catch((err) => console.error("Can not connect to db", err));
 
 app.get("/", (req, res) => {
     res.send("test");
