@@ -38,7 +38,34 @@ const furnitureSchema = new Schema({
     , material: {
         type: String
     }
-});
+
+    , CD: {
+        type: Date
+        , default: Date.now
+        , get: (v) => v ? new Date(v).toLocaleString('bg-BG', { timeZone: 'Europe/Sofia' }) : v
+    }
+
+    , CU: {
+        type: String
+        , default: "system"
+    }
+
+    , LD: {
+        type: Date
+        , default: Date.now
+        , get: (v) => v ? new Date(v).toLocaleString('bg-BG', { timeZone: 'Europe/Sofia' }) : v
+    }
+
+    , LU: {
+        type: String
+        , default: "system"
+    }
+} 
+, {
+    toJSON: { getters: true },
+    toObject: { getters: true },
+    timestamps: { createdAt: 'CD', updatedAt: 'LD' } // auto update
+ });
 
 const Furniture = model("Furniture", furnitureSchema);
 
