@@ -19,7 +19,7 @@ const furnitureSchema = new Schema({
         , minLength: [4, "Make should be at least 4 characters long"]
     }
 
-    , image: {
+    , img: {
         type: String
         , required: [true, "Image is required"]
     }
@@ -29,10 +29,10 @@ const furnitureSchema = new Schema({
         , required: [true, "Year is required"]
     }
 
-    , descritpion: {
+    , description: {
         type: String
-        , required: [true, "Descritpion is required"]
-        , minLength: [10, "Descritpion should be at least 10 characters long"]
+        , required: [true, "Description is required"]
+        , minLength: [10, "Description should be at least 10 characters long"]
     }
 
     , material: {

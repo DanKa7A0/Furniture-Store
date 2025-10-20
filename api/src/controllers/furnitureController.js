@@ -7,9 +7,9 @@ furnitureController.get("/", (req, res) => {
     res.status(200).json([]);
 });
 
-furnitureController.post("/", (req, res) => {
-    furnitureService.CreateFurniture(req.body);
-    res.end();
+furnitureController.post("/", async (req, res) => {
+    await furnitureService.CreateFurniture(req.body);
+    res.status(201).json({ok: true});
 });
 
 export default furnitureController;

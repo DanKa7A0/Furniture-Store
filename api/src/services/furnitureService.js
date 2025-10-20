@@ -1,3 +1,5 @@
+import Furniture from "../models/Furniture.js"
+
 export async function CreateFurniture(userData){
-    console.log(userData);
+    return await Furniture.create(userData);
 }
