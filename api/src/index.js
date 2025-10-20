@@ -10,7 +10,7 @@ const PORT = process.env.PORT ?? 5000;
 const DB = process.env.DB ?? "mongodb://localhost:27017/";
 
 // connect to db
-mongoose.connect(DB, { dbName: "Friendly_World" })
+mongoose.connect(DB, { dbName: "Furniture_Store" })
     .then(() => console.log("Successfully connected to db"))
     .catch((err) => console.error("Can not connect to db", err));
 
