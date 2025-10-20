@@ -10,7 +10,9 @@ furnitureController.get("/", async (req, res) => {
 });
 
 furnitureController.post("/", isAuth, async (req, res) => {
-    await furnitureService.CreateFurniture(req.body);
+    const user = req.user;
+    const furnitureData = req.body;
+    await furnitureService.CreateFurniture(furnitureData, user);
     res.status(201).json({ok: true});
 });
 

@@ -1,7 +1,11 @@
 import Furniture from "../models/Furniture.js"
 
-export async function CreateFurniture(userData){
-    return Furniture.create(userData);
+export async function CreateFurniture(furnitureData, user){
+    return Furniture.create({
+        ...furnitureData
+        , CU: user.email
+        , LU: user.email
+    });
 }
 
 export async function GetAllFurnitures(){
