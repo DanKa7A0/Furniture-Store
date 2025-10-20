@@ -3,8 +3,7 @@
   "private": true,
   "workspaces": [
     "api",
-    "client",
-    "shared"
+    "client"
   ],
   "scripts": {
     "dev": "concurrently \"npm run dev --workspace=api\" \"npm run dev --workspace=client\"",
