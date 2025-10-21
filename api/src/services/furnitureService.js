@@ -30,3 +30,7 @@ export async function GetOneFurniture(furniture_ID, user){
 export async function UpdateFurniture(furniture_ID, furnitureData, user_ID){
     return await Furniture.findByIdAndUpdate(furniture_ID, {...furnitureData, LU: user_ID});
 }
+
+export async function DeleteFurniture(furniture_ID){
+    return await Furniture.findByIdAndDelete(furniture_ID);
+}
