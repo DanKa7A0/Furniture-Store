@@ -1,4 +1,4 @@
-import { Schema, model } from "mongoose";
+import { Schema, Types, model } from "mongoose";
 
 const furnitureSchema = new Schema({
     make: {
@@ -46,8 +46,9 @@ const furnitureSchema = new Schema({
     }
 
     , CU: {
-        type: String
-        , default: "system"
+        type: Types.ObjectId
+        , ref: "User"
+        , required: true
     }
 
     , LD: {
@@ -55,12 +56,13 @@ const furnitureSchema = new Schema({
         , default: Date.now
         , get: (v) => v ? new Date(v).toLocaleString('bg-BG', { timeZone: 'Europe/Sofia' }) : v
     }
-
+    
     , LU: {
-        type: String
-        , default: "system"
-    }
-} 
+            type: Types.ObjectId
+            , ref: "User"
+            , required: true
+        }
+    } 
 , {
     toJSON: { getters: true },
     toObject: { getters: true },

@@ -23,4 +23,12 @@ furnitureController.get("/:id", async (req, res) => {
     res.status(200).json({...furnitureData, _ownerId: user.id});
 });
 
+furnitureController.put("/:id", async (req, res) => {
+    const user_ID = req.user.id;
+    const furniture_ID = req.params.id;
+    const furnitureData = req.body;
+    await furnitureService.UpdateFurniture(furniture_ID, furnitureData, user_ID);
+    res.status(200).json({ok: true});
+});
+
 export default furnitureController;

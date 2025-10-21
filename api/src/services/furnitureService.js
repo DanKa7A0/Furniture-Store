@@ -26,3 +26,7 @@ export async function GetOneFurniture(furniture_ID, user){
     const furnitureData = await Furniture.findById(furniture_ID, fetchData).lean();
     return furnitureData; 
 }
+
+export async function UpdateFurniture(furniture_ID, furnitureData, user_ID){
+    return await Furniture.findByIdAndUpdate(furniture_ID, {...furnitureData, LU: user_ID});
+}
