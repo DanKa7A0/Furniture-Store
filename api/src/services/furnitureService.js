@@ -12,3 +12,17 @@ export async function GetAllFurnitures(){
     const fetchData = {img: 1, description: 1, price: 1};
     return Furniture.find({}, fetchData);
 }
+
+export async function GetOneFurniture(furniture_ID, user){
+    const fetchData = {
+        make: 1
+        , model: 1
+        , year: 1
+        , description: 1
+        , price: 1
+        , material: 1
+        , img: 1
+    };
+    const furnitureData = await Furniture.findById(furniture_ID, fetchData).lean();
+    return furnitureData; 
+}
