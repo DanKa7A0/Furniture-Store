@@ -3,8 +3,8 @@ import Furniture from "../models/Furniture.js"
 export async function CreateFurniture(furnitureData, user){
     return Furniture.create({
         ...furnitureData
-        , CU: user.email
-        , LU: user.email
+        , CU: user.id
+        , LU: user.id
     });
 }
 
