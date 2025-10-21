@@ -22,6 +22,7 @@ export async function GetOneFurniture(furniture_ID, user){
         , price: 1
         , material: 1
         , img: 1
+        , CU: 1
     };
     const furnitureData = await Furniture.findById(furniture_ID, fetchData).lean();
     return furnitureData; 

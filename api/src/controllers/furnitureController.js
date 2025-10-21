@@ -28,7 +28,7 @@ furnitureController.get("/:id", async (req, res) => {
     const user = req.user;
     const furniture_ID = req.params.id;
     const furnitureData = await furnitureService.GetOneFurniture(furniture_ID, user);
-    res.status(200).json({...furnitureData, _ownerId: user.id});
+    res.status(200).json(furnitureData);
 });
 
 furnitureController.put("/:id", async (req, res) => {
