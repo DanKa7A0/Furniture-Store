@@ -1,11 +1,19 @@
 import { Router } from "express";
+import querystring from "querystring"
 import { furnitureService } from "../services/index.js";
 import { isAuth } from "../middlewares/authMiddleware.js";
 
 const furnitureController = Router();
 
 furnitureController.get("/", async (req, res) => {
-    const furnitures = await furnitureService.GetAllFurnitures();
+    const query = req.query.where?.replaceAll('"', '');
+
+    let filter = {};
+    if (query) {
+        filter = querystring.parse(query)
+    }
+
+    const furnitures = await furnitureService.GetAllFurnitures(filter);
     res.status(200).json(furnitures);
 });
 

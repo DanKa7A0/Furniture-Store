@@ -8,9 +8,9 @@ export async function CreateFurniture(furnitureData, user){
     });
 }
 
-export async function GetAllFurnitures(){
+export async function GetAllFurnitures(filter){
     const fetchData = {img: 1, description: 1, price: 1};
-    return Furniture.find({}, fetchData);
+    return Furniture.find(filter, fetchData);
 }
 
 export async function GetOneFurniture(furniture_ID, user){
