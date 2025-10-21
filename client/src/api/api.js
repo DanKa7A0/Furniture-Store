@@ -19,6 +19,12 @@ async function request(url, options) {
         }
     } catch (err) {
         alert(err.message);
+        if (err.message === "Invalid user session"){
+            sessionStorage.removeItem('email');
+            sessionStorage.removeItem('authToken');
+            sessionStorage.removeItem('userId');
+            page.redirect('/');
+        }
         throw err;
     }
 }
