@@ -6,6 +6,7 @@
     "client"
   ],
   "scripts": {
+    "start": "concurrently \"npm start --workspace=api\" \"npm start --workspace=client\"",
     "dev": "concurrently \"npm run dev --workspace=api\" \"npm run dev --workspace=client\"",
     "build": "npm run build --workspace=api && npm run build --workspace=client"
   },
