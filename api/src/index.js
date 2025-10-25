@@ -8,7 +8,7 @@ import { errorHandler } from "./middlewares/errorMiddleware.js";
 import { authMiddleware } from "./middlewares/authMiddleware.js";
 
 const app = express();
-const PORT = process.env.PORT ?? 5000;
+const PORT = process.env.PORT ?? 3030;
 const DB = process.env.DB ?? "mongodb://localhost:27017/";
 
 // connect to db
@@ -22,7 +22,6 @@ app.use(express.json());
 app.use(authMiddleware);
 app.use(router);
 app.use(errorHandler);
-app.use(routes);
 
 // start server
-app.listen(PORT, () => console.log("Server is listening on http://localhost:3030"));
+app.listen(PORT, () => console.log("Server is listening on http://localhost:" + PORT));
